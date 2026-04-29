@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=https://astropods.ai/schema/package.json
+spec: package/v1
+name: "@postman/open-deep-research"
+
+agent:
+  build:
+    context: .
+    dockerfile: Dockerfile
+
+models:
+  openai:
+    provider: openai
+  anthropic:
+    provider: anthropic
+
+inputs:
+  TAVILY_API_KEY:
+    name: TAVILY_API_KEY
+    datatype: string
+    secret: true
+    description: Tavily API key for web search (used when SEARCH_API=tavily, which is the default)
+    display-as: short-text
+
+  SEARCH_API:
+    name: SEARCH_API
+    datatype: string
+    description: "Search backend to use: tavily | anthropic | openai | none"
+    default: tavily
+    optional: true
+    display-as: select
+    options: [tavily, anthropic, openai, none]
+
+  RESEARCH_MODEL:
+    name: RESEARCH_MODEL
+    datatype: string
+    description: "Model for research sub-agents, e.g. openai:gpt-4.1 or anthropic:claude-sonnet-4-5"
+    default: openai:gpt-4.1
+    optional: true
+    display-as: short-text
+
+  FINAL_REPORT_MODEL:
+    name: FINAL_REPORT_MODEL
+    datatype: string
+    description: "Model for writing the final report"
+    default: openai:gpt-4.1
+    optional: true
+    display-as: short-text
+
+  SUMMARIZATION_MODEL:
+    name: SUMMARIZATION_MODEL
+    datatype: string
+    description: "Model for summarizing search results"
+    default: openai:gpt-4.1-mini
+    optional: true
+    display-as: short-text
+
+  COMPRESSION_MODEL:
+    name: COMPRESSION_MODEL
+    datatype: string
+    description: "Model for compressing sub-agent findings"
+    default: openai:gpt-4.1
+    optional: true
+    display-as: short-text
+
+  MAX_CONCURRENT_RESEARCH_UNITS:
+    name: MAX_CONCURRENT_RESEARCH_UNITS
+    datatype: number
+    description: "Number of parallel research sub-agents (max: 20)"
+    default: "5"
+    optional: true
+    display-as: short-text
+
+  ALLOW_CLARIFICATION:
+    name: ALLOW_CLARIFICATION
+    datatype: boolean
+    description: "Ask a clarifying question before starting research"
+    default: "true"
+    optional: true
+
+dev:
+  interfaces:
+    messaging:
+      adapters: [web]

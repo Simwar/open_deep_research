@@ -1,0 +1,2 @@
+open-deep-research>=0.0.16
+astropods-adapter-langchain>=0.1.1
