@@ -1,11 +1,10 @@
 ---
-description: "Autonomous deep research agent — runs parallel web searches across sub-agents and produces a comprehensive cited report on any topic"
+description: "Fork of langchain-ai/open_deep_research — autonomous deep research agent that runs parallel web searches across sub-agents and produces a comprehensive cited report."
 tags: ["research", "deep-research", "report-generation", "web-search", "langgraph"]
 authors:
-  - name: Simon
-repository:
-  type: github
-  url: https://github.com/langchain-ai/open_deep_research
+  - name: Simon Guerrier
+    account: simwar
+repository: github:Simwar/open_deep_research
 capabilities:
   - "Parallel web research using multiple concurrent sub-agents"
   - "Clarifying questions to scope research before starting"
@@ -18,7 +17,7 @@ integrations:
   - "tavily"
 ---
 
-Open Deep Research is a fully open-source autonomous research agent built on LangGraph. Give it any topic or question and it will scope the research (optionally asking clarifying questions), spin up parallel sub-agents to search the web, and synthesize findings into a well-structured, cited report.
+Open Deep Research is a fully open-source autonomous research agent built on LangGraph. This is a fork of the original [open_deep_research](https://github.com/langchain-ai/open_deep_research) by LangChain AI. Give it any topic or question and it will scope the research (optionally asking clarifying questions), spin up parallel sub-agents to search the web, and synthesize findings into a well-structured, cited report.
 
 **Example prompts:**
 - "What are the latest developments in fusion energy?"
